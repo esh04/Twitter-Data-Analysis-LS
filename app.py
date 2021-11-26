@@ -5,7 +5,7 @@ import plotly.express as px
 from plotly.subplots import make_subplots
 import plotly.graph_objects as go
 import matplotlib.pyplot as plt
-
+from functions import hashtags, hashtags_list
 
 st.title("Twitter Data Visualisation")
 st.markdown("The dashboard will visualize the different opinions of the citizens of India regarding what their National Language or Lingua Franca should be.")
@@ -13,18 +13,18 @@ st.markdown("The dashboard will visualize the different opinions of the citizens
 st.sidebar.title("Visualization Selector")
 st.sidebar.markdown("Select the Charts/Plots accordingly:")
 
+df_m=pd.read_csv("./data/translated_data.csv")
+df = pd.read_csv("./data/data.csv")
 
+st.map(df_m)
 
-def load_data():
-    data=pd.read_csv("translated_data.csv")
-    return data
+st.sidebar.checkbox("Show Analysis by Language", True, key=1)
+select = st.sidebar.selectbox('Select a Language', df["lang"].unique())
 
-df=load_data()
-
-st.map(df)
+df = hashtags(df)
 
 st.sidebar.checkbox("Show Analysis by Hashtags", True, key=1)
-select = st.sidebar.selectbox('Select a Hashtag', ['#StopHindiImposition'])
 
-st.sidebar.checkbox("Show Analysis by Region", True, key=1)
-select = st.sidebar.selectbox('Select a Region', ['Banglore'])
+hashtagList = hashtags_list(df["hashtags"].explode().tolist())
+
+select = st.sidebar.selectbox('Select a Hashtags', hashtagList)
