@@ -7,7 +7,7 @@ We aim to study what the diverse linguistic population of India thinks their Nat
 
 ## Dataset
 - Over 100000 relevent tweets, in various Indian Languages, were scraped using `snscrape`, from the years 2020-21.
-- The data was cleaned, and a significant chunk was translated to English for better understanding and analysis.
+- The data was cleaned, and the contents of the tweets with a valid location tag were translated to English for better understanding and analysis.
 
 ## Data Visualization
 - The dashboard contains four tabs: Overview, Hashtag Analysis, Language Analysis and Conclusion.
@@ -20,3 +20,4 @@ We aim to study what the diverse linguistic population of India thinks their Nat
 ## Problems Faced
 - **Language Identification:** As users often use the Roman alphabets instead of the languages own script (for example Devanagari for Hindi), the tool used for identifying the language failed at various instances and assigned a foreign language or undetermined language to that tweet. 
 - **Sentiment Analysis:** The output recieved from the sentiment analysis needs a lot of work, as it alone cannot be used to determine anything due to the varying subject across the tweets. For example, some tweets had a negative sentiment while referring to Hindi, while some had a negative sentiment with respect to English. So the data could not be classified on the basis of their sentiments alone.
+- **Translation of Tweets:** Due to the presence of more than 100000 tweets it was taking too long to run translations for all non-English tweets or was giving a too-many-requests error. So the number of tweets that were translated had to be reduced significantly.
