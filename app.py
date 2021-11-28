@@ -103,6 +103,8 @@ elif nav == "Language Analysis":
     fig3 = px.line(df_o, x='date', y='popularity', color='languages',  width=1000)
     st.plotly_chart(fig3, use_container_width=True)
     top_tweets = df_o.sort_values(by='popularity', ascending=False).head(10)
+    st.markdown('*Note: Zoom into specific regions for better analysis.*')
+
 
     # print the top ten tweets
     st.write('Below are the ten most popular tweets following the set filter:')
@@ -112,7 +114,7 @@ elif nav == "Language Analysis":
     st.subheader("Wordcloud")
     st.write("Below is a wordcloud, formulated using the data present in Roman script plus the translations of some of data in the Indian scripts.")
     st.image('./data/wordcloud.png', width=500)
-    st.write("The term ‘National Language’ occurs significantly larger than the term ‘Official Language’. Upon going through the tweets containg these words we found that there exists a commmon misconception that Hindi is the National Language of the country, even though it is in reality only the Official Language.")
+    st.write("The term ‘National Language’ occurs significantly larger than the term ‘Official Language’. Upon going through the tweets containg these words we found that there exists a common misconception that Hindi is the National Language of the country, even though it is in reality only the Official Language.")
 # --------------------------------------------------------------------------------------------------------
 
 # CONCLUSION TAB -----------------------------------------------------------------------------------------------
