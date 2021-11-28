@@ -43,11 +43,11 @@ if nav == "Overview":
 
 # plot a bar graph to show the most popular hashtags
     st.subheader("Most Popular Hashtags")
-    st.write('Below are the most popular Hashtags used by users.')
+    st.markdown('Below are the most popular Hashtags used by users.')
     fig = px.bar(hashtag_count.iloc[::-1], y='hashtag', x='count', orientation='h' , height=1000,width=2000)
     st.plotly_chart(fig, use_container_width=True)
-    st.write('Most Indian Languages have a trending Hashtag demanding equal recognition for their regional langauge, and implentations of policies that promote it.')
-    st.write('We see that one of the trending Hashtags is #Reject_Zomato. People of various linguistic backgrounds united to speak up against a statement given by a Zomato worker, discriminating against a Non-Hindi speaking customer. Read full story [here](https://indianexpress.com/article/trending/trending-in-india/zomato-chat-executives-reply-customers-complaint-7579241/)')
+    st.markdown('Most Indian Languages have a trending Hashtag demanding equal recognition for their regional langauge, and implentations of policies that promote it.')
+    st.markdown('We see that one of the trending Hashtags is #Reject_Zomato. People of various linguistic backgrounds united to speak up against a statement given by a Zomato worker, discriminating against a Non-Hindi speaking customer. Read full story [here](https://indianexpress.com/article/trending/trending-in-india/zomato-chat-executives-reply-customers-complaint-7579241/)')
 
 # plot a bar graph to show the most popular language scripts
     st.subheader("Most Popular Language Scripts")
@@ -76,16 +76,18 @@ elif nav == "Hashtag Analysis":
     df_new = df_new[df_new['languages'].isin(lang_options2)]
 
     st.markdown('We can compare and contrast the trends followed by the various Hashtags to analyse the differences.')
+    try:
+        # plot a line graph to find the trend of the tweets for the selected hashtags
+        fig3 = px.line(df_new, x='date', y='popularity', color='hashtags',  width=1000)
+        st.plotly_chart(fig3, use_container_width=True)
+        top_tweets = df_new.sort_values(by='popularity', ascending=False).head(10)
+        st.markdown('*Note: Zoom into specific regions for better analysis.*')
 
-    # plot a line graph to find the trend of the tweets for the selected hashtags
-    fig3 = px.line(df_new, x='date', y='popularity', color='hashtags',  width=1000)
-    st.plotly_chart(fig3, use_container_width=True)
-    top_tweets = df_new.sort_values(by='popularity', ascending=False).head(10)
-    st.markdown('*Note: Zoom into specific regions for better analysis.*')
-
-    # print the top ten tweets
-    st.markdown("Below are the ten most popular tweets following the set filter:")
-    st.table(top_tweets['content'])
+        # print the top ten tweets
+        st.markdown("Below are the ten most popular tweets following the set filter:")
+        st.table(top_tweets['content'])
+    except:
+        st.markdown("Please select atleast one hashtag/language.")
 
 # --------------------------------------------------------------------------------------------------------
 
@@ -99,16 +101,18 @@ elif nav == "Language Analysis":
 
     # plot a line graph to find the trend of the tweets for the selected languages
     st.markdown('We can compare and contrast the trends followed by the various Language scripts to analyse the differences.')
+    try:
+        fig3 = px.line(df_o, x='date', y='popularity', color='languages',  width=1000)
+        st.plotly_chart(fig3, use_container_width=True)
+        top_tweets = df_o.sort_values(by='popularity', ascending=False).head(10)
+        st.markdown('*Note: Zoom into specific regions for better analysis.*')
 
-    fig3 = px.line(df_o, x='date', y='popularity', color='languages',  width=1000)
-    st.plotly_chart(fig3, use_container_width=True)
-    top_tweets = df_o.sort_values(by='popularity', ascending=False).head(10)
-    st.markdown('*Note: Zoom into specific regions for better analysis.*')
 
-
-    # print the top ten tweets
-    st.write('Below are the ten most popular tweets following the set filter:')
-    st.table(top_tweets['content'])
+        # print the top ten tweets
+        st.write('Below are the ten most popular tweets following the set filter:')
+        st.table(top_tweets['content'])
+    except:
+        st.markdown("Please select atleast one language(script).")
 
     # display a wordcloud using some of the translated tweets
     st.subheader("Wordcloud")
