@@ -48,6 +48,7 @@ if nav == "Overview":
     st.plotly_chart(fig, use_container_width=True)
     st.markdown('Most Indian Languages have a trending Hashtag demanding equal recognition for their regional langauge, and implentations of policies that promote it.')
     st.markdown('We see that one of the trending Hashtags is #Reject_Zomato. People of various linguistic backgrounds united to speak up against a statement given by a Zomato worker, discriminating against a Non-Hindi speaking customer. Read full story [here](https://indianexpress.com/article/trending/trending-in-india/zomato-chat-executives-reply-customers-complaint-7579241/)')
+    st.markdown('Refer [this]() for more such observations')
 
 # plot a bar graph to show the most popular language scripts
     st.subheader("Most Popular Language Scripts")
