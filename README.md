@@ -3,7 +3,7 @@
 #### To run the app locally:
 Run `streamlit run app.py` on the terminal from the cloned repository. 
 
-We aim to study what the diverse linguistic population of India thinks their National Language or Lingua Franca should be. How the attitudes, views and opinions of the public led to the backlash against Hindi as the National Language of India and in favour of other languages being made the National Language or the view that India must have no national language whatsoever.
+We aim to study what the diverse linguistic population of India thinks their Official Language or Lingua Franca should be. How the attitudes, views and opinions of the public led to the backlash against Hindi as the Official Language of India and in favour of other languages.
 
 ## Dataset
 - Over 100000 relevent tweets, in various Indian Languages, were scraped using `snscrape`, from the years 2020-21.
