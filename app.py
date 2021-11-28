@@ -5,7 +5,7 @@ from Pyscripts.functions import hashtags, data
 
 # Navigation bar
 nav = st.sidebar.selectbox(
-    "Navigation:-", ["Overview", "Hashtag Analysis",  "Language Analysis", 'Conclusion'])
+    "Navigation:-", ["Overview", "Hashtag Analysis",  "Language Analysis"])
 
 # read data
 df_m=pd.read_csv("./data/translated_data.csv")
@@ -20,7 +20,7 @@ if nav == "Overview":
     st.title("Twitter Data Visualisation")
     st.markdown("We aim to study what the diverse linguistic population of India thinks their Official Language or Lingua Franca should be.")
     st.markdown("How the attitudes, views and opinions of the public led to the backlash against Hindi as the Official Language of India and in favour of other languages.")
-    st.markdown("For more detailed observations, click [here](https://github.com/esh04/Twitter-Data-Analysis-LS)")
+    st.markdown("For more detailed observations, click [here](https://github.com/esh04/Twitter-Data-Analysis-LS/blob/main/Project-Report.pdf)")
 # plot on a map
     st.subheader("Where are the users tweeting from?")
     st.map(df_m)
@@ -48,7 +48,7 @@ if nav == "Overview":
     st.plotly_chart(fig, use_container_width=True)
     st.markdown('Most Indian Languages have a trending Hashtag demanding equal recognition for their regional langauge, and implentations of policies that promote it.')
     st.markdown('We see that one of the trending Hashtags is #Reject_Zomato. People of various linguistic backgrounds united to speak up against a statement given by a Zomato worker, discriminating against a Non-Hindi speaking customer. Read full story [here](https://indianexpress.com/article/trending/trending-in-india/zomato-chat-executives-reply-customers-complaint-7579241/)')
-    st.markdown('Refer [this]() for more such observations')
+    st.markdown('Refer [this](https://github.com/esh04/Twitter-Data-Analysis-LS/blob/main/Project-Report.pdf) for more such observations')
 
 # plot a bar graph to show the most popular language scripts
     st.subheader("Most Popular Language Scripts")
@@ -122,10 +122,3 @@ elif nav == "Language Analysis":
     st.write("The term ‘National Language’ occurs significantly larger than the term ‘Official Language’. Upon going through the tweets containg these words we found that there exists a common misconception that Hindi is the National Language of the country, even though it is in reality only the Official Language.")
 # --------------------------------------------------------------------------------------------------------
 
-# CONCLUSION TAB -----------------------------------------------------------------------------------------------
-elif nav == 'Conclusion':
-    st.title("Conclusion")
-    st.markdown("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, b")
-    st.subheader("Problems Faced")
-
-# --------------------------------------------------------------------------------------------------------
