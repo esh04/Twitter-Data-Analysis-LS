@@ -30,7 +30,7 @@ if nav == "Overview":
     st.markdown("Let us analyse the popularity of these tweets over time.")
 
 # plot a line graph to find the trend of the tweets
-    
+    st.subheader('What are they tweeting?')
     lang_options = st.multiselect("Select Languages (script) you wish to include in the Analysis of trends", language_list,default=language_list[0])
     df_o = df[df['languages'].isin(lang_options)]
     fig3 = px.line(df_o, x='date', y='popularity', width=1000)
@@ -65,7 +65,9 @@ if nav == "Overview":
 
 elif nav == "Hashtag Analysis":
     st.title("Hashtag Analysis")
-    st.markdown("Analysis of the few top hashtags Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, b")
+
+    
+    st.markdown("Analysis of the few top Hashtags trending on Twitter.")
 
     hashtag = st.multiselect('Select the Hashtags you wish to include in the Analysis', hashtagList, default=hashtagList[0:3])
     df_new = df_h[df_h['hashtags'].isin(hashtag)]
@@ -73,12 +75,16 @@ elif nav == "Hashtag Analysis":
     lang_options2 = st.multiselect("Select Languages (script) you wish to include in the Analysis", language_list,default=language_list[0])
     df_new = df_new[df_new['languages'].isin(lang_options2)]
 
+    st.markdown('We can compare and contrast the trends followed by the various Hashtags to analyse the differences.')
+
     # plot a line graph to find the trend of the tweets for the selected hashtags
     fig3 = px.line(df_new, x='date', y='popularity', color='hashtags',  width=1000)
     st.plotly_chart(fig3, use_container_width=True)
     top_tweets = df_new.sort_values(by='popularity', ascending=False).head(10)
+    st.markdown('*Note: Zoom into specific regions for better analysis.*')
 
     # print the top ten tweets
+    st.markdown("Below are the ten most popular tweets following the set filter:")
     st.table(top_tweets['content'])
 
 # --------------------------------------------------------------------------------------------------------
