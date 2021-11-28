@@ -5,7 +5,7 @@ import plotly.express as px
 from plotly.subplots import make_subplots
 import plotly.graph_objects as go
 import matplotlib.pyplot as plt
-from functions import hashtags, data
+from Pyscripts.functions import hashtags, data
 
 # Navigation bar
 nav = st.sidebar.selectbox(
