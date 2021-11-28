@@ -67,7 +67,7 @@ elif nav == "Hashtag Analysis":
     st.title("Hashtag Analysis")
 
     
-    st.markdown("Analysis of the few top Hashtags trending on Twitter.")
+    st.markdown("Analysis of the most popualar Hashtags trending on Twitter.")
 
     hashtag = st.multiselect('Select the Hashtags you wish to include in the Analysis', hashtagList, default=hashtagList[0:3])
     df_new = df_h[df_h['hashtags'].isin(hashtag)]
@@ -92,23 +92,27 @@ elif nav == "Hashtag Analysis":
 # LANGUAGE ANALYSIS TAB ----------------------------------------------------------------------------------
 elif nav == "Language Analysis":
     st.title("Language Analysis")
-    st.markdown("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, b")
+    st.markdown("Analysis of some of the Indian Languages (scripts) used by the users.")
 
     lang_options3 = st.multiselect("Select Languages (script) you wish to include in the Analysis", language_list,default=language_list[1:3])
     df_o = df[df['languages'].isin(lang_options3)]
 
     # plot a line graph to find the trend of the tweets for the selected languages
+    st.markdown('We can compare and contrast the trends followed by the various Language scripts to analyse the differences.')
+
     fig3 = px.line(df_o, x='date', y='popularity', color='languages',  width=1000)
     st.plotly_chart(fig3, use_container_width=True)
     top_tweets = df_o.sort_values(by='popularity', ascending=False).head(10)
+
     # print the top ten tweets
+    st.write('Below are the ten most popular tweets following the set filter:')
     st.table(top_tweets['content'])
 
     # display a wordcloud using some of the translated tweets
     st.subheader("Wordcloud")
-    st.markdown("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, b")
+    st.write("Below is a wordcloud, formulated using the data present in Roman script plus the translations of some of data in the Indian scripts.")
     st.image('./data/wordcloud.png', width=500)
-
+    st.write("The term ‘National Language’ occurs significantly larger than the term ‘Official Language’. Upon going through the tweets containg these words we found that there exists a commmon misconception that Hindi is the National Language of the country, even though it is in reality only the Official Language.")
 # --------------------------------------------------------------------------------------------------------
 
 # CONCLUSION TAB -----------------------------------------------------------------------------------------------
