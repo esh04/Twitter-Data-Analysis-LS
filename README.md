@@ -13,8 +13,9 @@ We aim to study what the diverse linguistic population of India thinks their Off
 - The dashboard contains four tabs: Overview, Hashtag Analysis, Language Analysis and Conclusion.
 - The Overview tab 
   - contains a map that depicts the locations most tweeted from. 
-  - presents the most popular hashtags and language scripts used where popularity is depicted by the sum of retweets and likes. 
   - visualises the trend of tweets over the two years and displays the most popular tweets that were tweeted in that period.
+  - presents the most popular hashtags and language scripts used where popularity is depicted by the sum of retweets and likes. 
+
 - The Hashtag and Language Analysis tabs visualise the trends on the basis of selected Hashtags and Language scripts respectively. The latter also consists a wordcloud made from all the translated tweets in order to depict the general opinion of the public.
 
 ## Problems Faced
