@@ -30,7 +30,7 @@ if nav == "Overview":
     st.markdown("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, b")
 
 # plot a bar graph to show the most popular hashtags
-    fig = px.bar(hashtag_count, y='hashtag', x='count', orientation='h' , height=1000,width=2000)
+    fig = px.bar(hashtag_count.iloc[::-1], y='hashtag', x='count', orientation='h' , height=1000,width=2000)
     st.plotly_chart(fig, use_container_width=True)
     st.markdown("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, b")
 
